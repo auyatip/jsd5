@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css"  rel="stylesheet" />
+   
+    <title>Document</title>
+</head>
+<body class="bg-slate-200">
+    <div class="flex flex-col items-center">
+        <h1 class="text-3xl font-semibold">Enter Data</h1>
+        <div class="flex flex-col w-2/5 align-content-center">
+            <label for="nameInput" class="">Name:</label>
+            <input type="text" id="nameInput" class="rounded-md">
+
+            <label for="ageInput" class="">Age:</label>
+            <input type="text" id="ageInput" class="rounded-md">
+
+            <label for="weightInput" class="">Weight:</label>
+            <input type="text" id="weightInput" class="rounded-md">
+
+            <label for="runningInput" class="">Current Running (Minute):</label>
+            <input type="number" id="runningInput" class="rounded-md">
+
+            <button type="button" onClick="getData()" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mt-5">SAVE</button>
+        </div>
+        <table class="table-auto w-full">
+            <h1 class="m-3 text-3xl font-semibold">Data Table</h1>
+            <thead>
+              <tr>
+                <th class="border border-slate-300">Name</th>
+                <th class="border border-slate-300">Age</th>
+                <th class="border border-slate-300">Weight</th>
+                <th class="border border-slate-300">Current Running (Minute)</th>
+                <th class="border border-slate-300">Good Running</th>
+              </tr>
+            </thead>
+            <tbody id="dataTable">
+              
+            </tbody>
+          </table>
+    </div>
+
+    <script>
+        const getData = () => {
+
+            const dataName = document.querySelector("#nameInput")
+            const dataAge = document.querySelector("#ageInput")
+            const dataWeight = document.querySelector("#weightInput")
+            const dataCurrentRun = document.querySelector("#runningInput")
+
+            const runInt = parseInt(dataCurrentRun.value);
+            
+            let runningStatus
+            if (runInt >= 0 && runInt <= 30){
+                runningStatus = 'Good'
+            } else if (runInt <= 60){
+                runningStatus = 'Balance'
+            } else {
+                runningStatus = 'Extream'
+            }
+
+            const dataTable = document.querySelector("#dataTable")
+            dataTable.innerHTML += 
+                `<tr class="text-center">
+                <td class="border border-slate-300">${dataName.value}</td>
+                <td class="border border-slate-300">${dataAge.value}</td>
+                <td class="border border-slate-300">${dataWeight.value}</td>
+                <td class="border border-slate-300">${dataCurrentRun.value}</td>
+                <td class="border border-slate-300">${runningStatus}</td>
+                </tr>`
+        }
+
+    </script>
+</body>
+</html>

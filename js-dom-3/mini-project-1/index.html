@@ -1,47 +1,81 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mini Project 1</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <div style="display: flex; flex-direction: column; padding: 12px">
-      <div class="id-card" id="idCard">
-        <div class="photo"></div>
-        <div class="info">
-          <h2 id="name">John Doe</h2>
-          <p>Date of Birth: <span id="dob">01/15/1990</span></p>
-          <p>Expiration Date: <span id="expiration">01/15/2030</span></p>
-          <p>License No: <span id="license">123456789</span></p>
-          <p>State: <span id="state">CA</span></p>
-        </div>
-      </div>
-
-      <div class="edit-form">
-        <h2>Edit ID Card Data</h2>
-        <label for="nameInput">Name:</label>
-        <input type="text" id="nameInput" name="name" />
-
-        <label for="dobInput">Date of Birth:</label>
-        <input type="date" id="dobInput" name="dob" />
-
-        <label for="expirationInput">Expiration Date:</label>
-        <input type="date" id="expirationInput" name="expiration" />
-
-        <label for="licenseInput">License No:</label>
-        <input type="text" id="licenseInput" name="license" />
-
-        <label for="stateInput">State:</label>
-        <input type="text" id="stateInput" name="state" />
-
-        <button type="button" id="updateButton" onClick="updateData()">
-          Update
-        </button>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css"  rel="stylesheet" />
+</head>
+<body class="bg-slate-200">
+  <div class="max-w-md mx-auto mt-5">
+    <div class="w-full px-4 pt-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="flex flex-col items-center pb-5">
+          <img id="profile" class="w-24 h-24 mb-3 rounded-full shadow-lg" src=".." alt="image"/>
+          <h2 id="disName" class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Athip</h2>
+          <p>Date of Birth: <span id="disBd" class="text-gray-500 dark:text-gray-400"> 01/15/2024</span></p>
+          <p>Expiration Date: <span id="disExp" class="text-gray-500 dark:text-gray-400"> 01/15/2024</span></p>
+          <p>License No: <span id="disLicen" class="text-gray-500 dark:text-gray-400"> 123-456-789</span></p>
+          <p>State: <span id="disState" class="text-gray-500 dark:text-gray-400"> Bangkok</span></p>
       </div>
     </div>
 
-    <script></script>
-  </body>
+      <div class="m-2">
+        <h2 class="mb-1 text-xl font-medium text-gray-900 dark:text-white text-center"> Edit Your Profile</h2>
+        <label for="nameInput" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Name:</label>
+        <input type="text" id="nameInput" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        
+        <label for="BoDinput" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Date of Birth:</label>
+        <input type="date" id="BoDinput" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        
+        <label for="Expinput" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Expiration Date:</label>
+        <input type="date" id="Expinput" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        
+        <label for="LNInput" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">License No:</label>
+        <input type="text" id="LNInput" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+        <label for="StateInput" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">State:</label>
+        <input type="text" id="StateInput" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        
+        <label for="imgInput" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Image:</label>
+        <input type="text" id="imgInput" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+         
+        <!-- <label class="block mb-1 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload file:</label>
+         <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file"> -->
+            
+        </div>
+              <div class="flex flex-row-reverse">
+              <button type="button" onClick="change()" id="updateButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">SAVE</button>
+        </div>
+  </div>
+  
+  <script>
+
+// ชี้ตำแหน่ง Form Input //
+      const dataInputName = document.querySelector("#nameInput")
+      const dataInputBirth = document.querySelector("#BoDinput")
+      const dataInputExp = document.querySelector("#Expinput")
+      const dataInputLN = document.querySelector("#LNInput")
+      const dataInputState = document.querySelector("#StateInput")
+// ตำแหน่งของ Display ที่จะ show //
+      const Dis_name = document.querySelector("#disName")
+      const Dis_birth = document.querySelector("#disBd")
+      const Dis_exp = document.querySelector("#disExp")
+      const Dis_licen = document.querySelector("#disLicen")
+      const Dis_state = document.querySelector("#disState")
+// ตำแหน่ง form and diplay ของ Profile //
+      const Dis_profile = document.querySelector("#profile")
+      const dataInputImg = document.querySelector("#imgInput")
+// funtion ในการแทนค่า //
+      const change = () => {
+        Dis_name.innerText = dataInputName.value
+        Dis_birth.innerText = dataInputBirth.value
+        Dis_exp.textContent = dataInputExp.value
+        Dis_licen.innerText = dataInputLN.value
+        Dis_state.innerText = dataInputState.value
+// funtion ในการแทนค่าใน attribute //
+        Dis_profile.setAttribute("src",dataInputImg.value)
+      }
+  </script>
+</body>
 </html>
